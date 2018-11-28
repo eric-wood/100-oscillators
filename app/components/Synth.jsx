@@ -8,7 +8,7 @@ class Synth extends React.Component {
     super(props)
     
     this.gain = props.context.createGain()
-    this.gain.gain.value = 0.1
+    this.gain.gain.value = 0.0
     
     this.left = props.context.createStereoPanner()
     this.left.pan.value = -1
@@ -22,10 +22,10 @@ class Synth extends React.Component {
   }
   
   render() {
-    const enumeration = [...Array(2).keys()]
+    const enumeration = [...Array(10).keys()]
 
     return (
-      <div className="oscillators">
+      <div className="controls--oscillators">
         <section>
           {enumeration.map((_, i) => (
             <OscillatorGroup

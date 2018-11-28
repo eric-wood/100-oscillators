@@ -1,0 +1,40 @@
+$orange: #f93e18;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #2d3037;
+  color: white;
+  font-family: Helvetica, sans-serif;
+}
+
+.controls--oscillators {
+  display: flex;
+  justify-content: center;
+
+  > section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    &:first-child {
+      border-right: solid $orange 3px;
+    }
+  }
+}
+
+.oscillator-group {
+  display: flex;
+  padding: 30px;
+
+  .oscillators {
+    width: 50px;
+  }
+}
+
+.oscillator {
+  input[type="range"] {
+    width: 100%;
+  }
+}

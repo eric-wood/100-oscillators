@@ -22,5 +22,8 @@
     "web audio",
     "react",
     "oscillator"
-  ]
+  ],
+  "devDependencies": {
+    "sass": "^1.15.1"
+  }
 }

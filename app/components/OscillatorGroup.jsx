@@ -33,40 +33,44 @@ class OscillatorGroup extends React.Component {
     const enumeration = [...Array(this.props.count).keys()]
     
     return (
-      <div style={{border: 'solid blue 1px'}}>
-        {enumeration.map((_, i) => (
-          <Oscillator
-            key={i}
-            context={this.props.context}
-            destination={this.gain}
-            frequency={this.state.frequencies[i]}
-            onFrequencyChange={(freq) => this.setFrequency(i, freq)}
-            detune={this.state.detunings[i]}
-            gain={this.state.muted ? 0 : 1}
+      <div className="oscillator-group">
+        <div className="oscillators">
+          {enumeration.map((_, i) => (
+            <Oscillator
+              key={i}
+              context={this.props.context}
+              destination={this.gain}
+              frequency={this.state.frequencies[i]}
+              onFrequencyChange={(freq) => this.setFrequency(i, freq)}
+              detune={this.state.detunings[i]}
+              gain={this.state.muted ? 0 : 1}
+            />
+          ))}
+        </div>
+      
+        <div>
+          <label>Detune</label>
+          <input
+            type="range"
+            min={0}
+            max={1000}
+            value={this.state.detuningFactor}
+            onChange={(event) => this.onDetuningChange(event.target.value)}
           />
-        ))}
-        
-        <button
-          onClick={() => this.setState({ muted: !this.state.muted })}
-        >
-          {this.state.muted ? 'Unmute' : 'Mute'}
-        </button>
-        <label>Detune</label>
+          <FrequencySelector
+            onFrequencyChange={(freq) => this.onFrequencyChange(freq)}
+          />
+        </div>
         <input
-          type="range"
-          min={0}
-          max={1000}
-          value={this.state.detuningFactor}
-          onChange={(event) => this.onDetuningChange(event.target.value)}
-        />
-        <FrequencySelector
-          onFrequencyChange={(freq) => this.setFrequency(freq)}
+          type="checkbox"
+          checked={!this.state.muted}
+          onChange={(event) => this.setState({ muted: !event.target.checked })}
         />
       </div>
     )
   }
   
-  setFrequency(frequency) {
+  onFrequencyChange(frequency) {
     console.log(frequency)
     this.setState({
       frequencies: Array(this.props.count).fill(frequency)

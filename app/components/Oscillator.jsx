@@ -8,6 +8,7 @@ class Oscillator extends React.Component {
     this.oscillator = props.context.createOscillator()
     this.oscillator.frequency.value = props.frequency
     this.oscillator.detune.value = props.detune
+    this.oscillator.type = 'square'
     
     this.gain = props.context.createGain()
     this.gain.gain.value = props.gain
@@ -19,7 +20,7 @@ class Oscillator extends React.Component {
   
   render() {
     return (
-      <div>
+      <div className="oscillator">
         <input
           type="range"
           value={this.props.frequency}
@@ -27,7 +28,6 @@ class Oscillator extends React.Component {
           min={0}
           max={10000}
         />
-        <h3>{this.props.frequency}hz</h3>
       </div>
     )
   }

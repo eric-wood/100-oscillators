@@ -1,5 +1,5 @@
-const React = require('react')
-const PropTypes = require('prop-types')
+import React from 'react'
+import PropTypes from 'prop-types'
 
 class Oscillator extends React.Component {
   constructor(props) {
@@ -77,4 +77,4 @@ Oscillator.defaultProps = {
   detune: 0,
 }
 
-module.exports = Oscillator
+export default Oscillator

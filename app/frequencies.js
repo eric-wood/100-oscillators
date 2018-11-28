@@ -1,4 +1,4 @@
-module.exports = [
+const frequencies = [
   {
     'C': 16.35,
     'C#': 17.32,
@@ -126,3 +126,5 @@ module.exports = [
     'B': 7902.13,
   },
 ]
+
+export default frequencies

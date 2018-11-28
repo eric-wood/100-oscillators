@@ -1,14 +1,14 @@
-const React = require('react')
-const PropTypes = require('prop-types')
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const OscillatorGroup = require('./OscillatorGroup')
+import OscillatorGroup from './OscillatorGroup'
 
 class Synth extends React.Component {
   constructor(props) {
     super(props)
     
     this.gain = props.context.createGain()
-    this.gain.gain.value = 0
+    this.gain.gain.value = 0.1
     
     this.left = props.context.createStereoPanner()
     this.left.pan.value = -1
@@ -58,4 +58,4 @@ Synth.defaultProps = {
   context: new (window.AudioContext || window.webkitAudioContext)()
 }
 
-module.exports = Synth
+export default Synth

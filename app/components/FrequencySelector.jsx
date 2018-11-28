@@ -1,7 +1,7 @@
-const React = require('react')
-const PropTypes = require('prop-types')
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const FREQUENCIES = require('../frequencies')
+import FREQUENCIES from '../frequencies'
 
 class FrequencySelector extends React.Component {
   constructor(props) {
@@ -39,7 +39,12 @@ class FrequencySelector extends React.Component {
           onChange={(event) => this.onOctaveChange(event.target.value)}
         >
           {octaves.map((octave) => (
-            <option value={octave}>{octave}</option>
+            <option
+              value={octave}
+              key={octave}
+            >
+              {octave}
+            </option>
           ))}
         </select>
         
@@ -49,7 +54,12 @@ class FrequencySelector extends React.Component {
           onChange={(event) => this.onNoteChange(event.target.value)}
         >
           {Object.keys(notes).map((note) => (
-            <option value={note}>{note}</option>
+            <option
+              value={note}
+              key={note}
+            >
+              {note}
+            </option>
           ))}
         </select>
       </div>
@@ -65,4 +75,4 @@ FrequencySelector.defaultProps = {
   onFrequencyChange: () => {}
 }
 
-module.exports = FrequencySelector
+export default FrequencySelector

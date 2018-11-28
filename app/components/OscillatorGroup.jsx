@@ -1,8 +1,8 @@
-const React = require('react')
-const PropTypes = require('prop-types')
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const Oscillator = require('./Oscillator')
-const FrequencySelector = require('./FrequencySelector')
+import Oscillator from './Oscillator'
+import FrequencySelector from './FrequencySelector'
 
 class OscillatorGroup extends React.Component {
   constructor(props) {
@@ -105,4 +105,4 @@ OscillatorGroup.defaultProps = {
   frequency: 420 // better than A 440hz
 }
 
-module.exports = OscillatorGroup
+export default OscillatorGroup
